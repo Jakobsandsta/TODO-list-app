@@ -1,0 +1,191 @@
+<html>
+    <head>
+        <style>
+            #contain {
+                height: auto;
+                width: auto;
+                padding-top: 50px;
+                background-color: rgb(194, 194, 255);
+
+            }
+            
+            #innhold {
+                margin: 0px 300px;
+                display: flex;
+                align-items: center;
+                padding-bottom: 100px;
+                padding-left: 100px;
+            }
+            #Bruker_input, #Legg_til, #remove_marked, select, #lagre {
+                border-style: none;
+                height: 50px;
+                
+                
+                
+            }
+            #remove_marked {
+                width:40px;
+                
+            }
+            #Bruker_input {
+                width:200px;
+
+            }
+            #Legg_til {
+                width: 40px;
+            }
+            li {
+                list-style: none;
+                height: 10px;
+                width: 300px;
+                background-color: white;
+                padding: 10px;
+                margin-top: 10px;
+                border-style:solid;
+                border-color: rgb(192, 190, 190);
+                
+                
+            }
+            #description {
+                margin: 0%;
+                width: 100px;
+                height: 50px;
+            }
+            #title {
+                margin: 0%;
+                height: 20px;
+                width: 20px;
+                
+                
+            }
+            #remove {
+                margin-left: 70%;
+                margin-top: 10%;
+                margin-bottom: -15%;
+                height: 50px;
+                width: 70px;
+                font-size: 20px;
+
+            }
+            #ToDo, #deleted {
+                display: flex;
+                flex-wrap: wrap;
+                width: auto;
+                
+            }
+            
+            #list {
+                background-color: white;
+                width:auto;
+
+            }
+            #color_code {
+                width: 10px;
+                height: 10px;
+                margin-left: 80%;
+                margin-top:-15px;
+                border-radius: 50%;
+            }
+            #restore {
+                margin-left: 80%;
+                margin-top:-15px;
+            }
+            select {
+                width: 100px;
+            }
+
+            #deleted_button  {
+                position: fixed;
+                margin-left: 90%;
+            }
+            #see_done {
+                position: fixed;
+                margin-left: 85%;
+            }
+            #deleted_back {
+                height: 30%;
+                width: 97%;
+                padding: 10px;
+                position: absolute;
+                float:left;
+                padding: 12px;
+                background-color: rgb(211, 161, 138);
+            }
+            #o {
+                margin: 0px 300px;
+                display: flex;
+                align-items: center;
+                margin-left: 90%;
+                
+            }
+            #edit_icon {
+                margin-top: 1px;
+                margin-bottom: -20px;
+                margin-left: 92%;
+                opacity: 0.5;
+
+            }
+            
+
+            
+        </style>
+    </head>
+
+    <body>
+        <div id="contain">        
+            <div id="innhold">
+                <input id="Bruker_input" type="text" placeholder="Tittel">
+                <input id="Bruker_input" type="text" placeholder="Beskrivelse">
+                <input id="Bruker_input" type="text" placeholder="Sluttdato">
+                <button id="Legg_til" onclick="add()"><img src="hinzufugen.png"></button>
+                <button id="remove_marked" onclick="remove_marked()"><img src="kreuzkreis.png"></button>
+                <select id="select">
+                    <option>Choose color</option>
+                    <option value="red" style="background-color: red;"></option>
+                    <option value="green" style="background-color: green;"></option>
+                    <option value="blue" style="background-color: blue;"></option>
+                </select>
+                <button id="lagre" onclick="lagre()"><img src="scheibe.png"></button>
+            </div>
+        </div>
+        <div id="deleted_back" style="display: none;">
+            <div id="o">
+                <button onclick="RestoreAll()" id="delete">Restore all</button>
+                <button onclick="DeleteAll()" id="delete">Delete all</button>
+                <button onclick="Close()" id="close">x</button>
+            </div>
+            <h1 id="header"></h1>
+            <ul id="deleted">
+
+            </ul>
+
+        </div>
+
+        
+        <div id="list">
+            <select>
+                <option>Filter</option>
+                <optgroup label="color">
+                    <option value="red">red</option>
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                </optgroup>
+            </select>
+            <select>
+                <option>Sort</option>
+                <option>A-Å</option>
+                <option>Å-A</option>
+                <option>Antall dager til sluttdatoen</option>
+            </select>
+            <ul id="ToDo">
+            </ul>
+        </div>
+        <button id="deleted_button" class="buttons"onclick="deleted_list()"><img src="mull.png"></button>
+        <button id="see_done" class="buttons" onclick="deleted_list()"><img src="prufen.png"></button>
+
+        
+        <script src="TODO.js"></script>
+        <script src="deteled.js"></script>
+        <script src="Edit/Edit.js"></script>
+    </body>
+</html>
