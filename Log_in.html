@@ -1,0 +1,30 @@
+<html>
+    <head></head>
+    <body onload="load()">
+        <input id="username" type="text" placeholder="Username">
+        <input id="password" type="password" placeholder="password">
+        <button onclick="Log_in()">Log in</button>
+
+        <script>
+            let user_info = ""
+
+            function load() {
+                user_info = JSON.parse(localStorage.getItem("user_info"))
+            }
+
+            function Log_in() {
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+
+                if (user_info["name"] !== username || user_info["password"] !== password) {
+                    alert("Username or password are incorrect")
+                } else {
+                    window.location.href = "TODO.html"
+                    localStorage.setItem("OpenWay", "Log in")
+                }
+            }
+
+
+        </script>
+    </body>
+</html>
